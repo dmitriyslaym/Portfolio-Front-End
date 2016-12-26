@@ -59,7 +59,7 @@ app.controller("ListCtrl", function($scope) {
     }
 
     $scope.turnOffEditMode = function(item) {
-    	if (event.target.nodeName != 'INPUT' && event.target.nodeName != 'SELECT' && event.target.innerHTML != 'Edit') {
+    	if (event.target.nodeName != 'INPUT' && event.target.nodeName != 'SELECT' && event.target.nodeName != 'SPAN') {
     		$scope.items[$scope.items.indexOf(item)].editable = false;
     	}
     }

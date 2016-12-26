@@ -20,6 +20,14 @@ input,button,select {
 	box-shadow: 1px 1px 1px black;
 }
 
+.delButton {
+	cursor: pointer;
+}
+
+.delButton img {
+	width: 25px;
+}
+
 .wrapper {
 	max-width: 1100px;
 	margin:  0 auto;
@@ -169,14 +177,6 @@ input,button,select {
 
 .taskPriority {
 	width: 50px;
-}
-
-.timeRemainsCol {
-	width: 14%;
-}
-
-.priorityCol {
-	width: 10%;
 }
 
 .evenRow {

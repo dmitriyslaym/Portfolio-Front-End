@@ -56,31 +56,33 @@
                                 <th>Task name</th>
                                 <th class="deadlineCol">Deadline</th>
                                 <th class="timeRemainsCol">
-                                    Time remains
+                                    Time remains</br>
                                     <select class="selectInput" ng-model="newOrder">
-                                        <option value="">Sort</option>
+<!--                                         <option value="">Sort</option> -->
                                         <option value="-timeRemain">&darr;&darr;</option>
                                         <option value="+timeRemain">&uarr;&uarr;</option>
                                     </select> 
                                 </th>
                                 <th class="priorityCol">
-                                    Priority
+                                    Priority</br>
                                     <select class="selectInput" ng-model="newOrder">
-                                        <option value="">Sort</option>
+<!--                                         <option value="">Sort</option> -->
                                         <option value="-priority">&darr;&darr;</option>
                                         <option value="+priority">&uarr;&uarr;</option>
                                     </select> 
                                 </th>
-                                <th class="configurationCol">Configuration</th>
                             </tr>
                             <tr class="animate" ng-click="turnOffEditMode(item)" class="tasksRow" ng-show="!item.filteredBytimeRemain && !item.filteredBypriority && !item.filteredByComplete" ng-repeat="item in items | filter:searchBox | numbersFilter:filterByRemain:'timeRemain' | numbersFilter:filterByPriority:'priority' | completeFilter:filterByCompleteness | orderBy:newOrder | firstLetterUppercase" ng-class-odd="'evenRow'" >
-                                <td><input type="checkbox" ng-model="item.done"></td>
                                 <td>
-                                    <span ng-show="!item.editable" ng-dblclick="turnOnEditMode(item)" class="editable actionText done-{{item.done}}">{{item.text}}</span>
+                                    <input type="checkbox" ng-model="item.done">
+                                </td>
+                                <td>
+                                    <a class="delButton" ng-click="deleteTask(item)" class="delete"><img src="img/DeleteRed.png" alt=""></a>
+                                    <span ng-show="!item.editable" ng-click="turnOnEditMode(item)" class="editable actionText done-{{item.done}}">{{item.text}}</span>
                                     <input ng-show="item.editable" type="text" ng-model="item.text">
                                 </td>
                                 <td>
-                                    <span class="editable" ng-show="!item.editable" ng-dblclick="turnOnEditMode(item)">{{item.deadline | date:dateFilter}}</span>
+                                    <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(item)">{{item.deadline | date:dateFilter}}</span>
                                     <input ng-show="item.editable" ng-change="timeRemainCalc(item)" type="date" class="dateInput" ng-model="item.deadline">
                                 </td>
                                 <td>
@@ -88,15 +90,10 @@
                                     <span class="success" ng-show="item.done">Already done</span>
                                 </td>
                                 <td>
-                                    <span class="editable" ng-show="!item.editable" ng-dblclick="turnOnEditMode(item)">{{item.priority}}</span>
+                                    <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(item)">{{item.priority}}</span>
                                     <select ng-show="item.editable" ng-model="item.priority" ng-options="score for score in [5,4,3,2,1]">
                                         <option value="">Select a score</option>
                                     </select>
-                                </td>
-                                <td>
-                                    <button class="button" ng-click="turnOnEditMode(item)">Edit</button>
-                                    <button class="button" ng-click="turnOffEditMode(item)">Save</button>
-                                    <button class="button" ng-click="deleteTask(item)" class="delete">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
