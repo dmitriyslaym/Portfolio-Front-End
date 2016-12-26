@@ -1,0 +1,13 @@
+.events {
+	& > * {
+		flex: 0 1 100%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.events {
+		& > * {
+			flex: 0 1 calc(50% - 10px);
+		}
+	}
+}

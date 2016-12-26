@@ -1,0 +1,74 @@
+@import "mixins.scss";
+
+.buttons {
+	width: 100%;
+	display: flex;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	&__item {
+		border-radius: 5px;
+		cursor: pointer;
+		color: white;
+		font-weight: bold;
+	}
+	&__textBetween {
+		text-transform: uppercase;
+		color: #8c9c93;
+		font-style: italic;
+		margin-left: auto;
+	}
+}
+
+.confirm {
+	padding: 10px 60px;
+	height: 40px;
+	text-transform: uppercase;
+	background-color: $success;	
+	border-radius: 5px;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+}
+
+.sprite {
+	width: 40px;
+	height: 40px;
+	&_twitter {
+		background: url('../img/twitterIcon.png') no-repeat 50% 50%;
+		background-color: #25aae2;
+	}
+	&_fb {
+		background: url('../img/facebookIcon.png') no-repeat 50% 50%;
+		background-color: #0f75bd;
+	}
+	&_google {
+		background: url('../img/googleIcon.png') no-repeat 50% 50%;
+		background-color: #e62c2c;
+	}
+	&_plus {
+		background: url('../img/plusIcon.png') no-repeat 50% 50%;
+		background-color: #eeeeee;
+	}
+}
+
+.fa {
+	color: #8c9c93;
+	font-size: 16px !important;
+	border: none !important;
+}
+
+.button {
+	display: inline-block;
+	padding: 0 12px;
+	background-color: #3dcf7e;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 43px;
+	color: white;
+	border-radius: 5px;
+	text-transform: uppercase;
+	&_gray {
+		background-color: #eeeeee;
+		color: #8c9c93;
+	}
+}

@@ -1,0 +1,35 @@
+.videoList {
+	display: flex;
+	flex-direction: column;
+	flex: 0 1 100%;
+	& > * {
+		width: 100%;
+		padding: 15px 20px;
+		flex: 0 1 auto;
+	}
+}
+
+.quantityOfVideos {
+	display: flex;
+	padding: 15px 20px;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	align-items: center;
+	& > * {
+		font-size: 16px;
+		font-weight: bold;
+	}
+	&__text {
+		color: rgb(140, 156, 147);		
+		line-height: 1.571;
+		text-transform: uppercase;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.video {
+		& .videoList {
+			flex: 0 1 calc(34% - 20px);
+		}
+	}
+}

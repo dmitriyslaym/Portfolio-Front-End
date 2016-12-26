@@ -1,0 +1,21 @@
+.mainInfo {
+	& .col {
+		flex: 0 1 100%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.mainInfo {
+		& .col {
+			flex: 0 1 calc(33% - 10px);
+		}
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.mainInfo {
+		& .col {
+			padding: 40px;
+		}
+	}
+}

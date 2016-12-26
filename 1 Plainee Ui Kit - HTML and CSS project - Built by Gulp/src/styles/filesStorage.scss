@@ -1,0 +1,45 @@
+.filesStorage {
+	& > * {
+		width: 95% !important;
+	}
+	padding: 0;
+	padding-bottom: 40px;
+	&__header {
+		padding: 20px 40px;
+		border-bottom: 2px solid #eeeeee;
+		margin-bottom: 20px;
+		width: 100% !important;
+	}
+	&__headerText {
+		font-size: 14px;
+		color: rgb(1, 20, 7);
+		font-weight: bold;
+		line-height: 1.571;
+		text-transform: uppercase;
+	}
+	&__headerIcons {
+		& > * {
+			margin-right: 5px;	
+		}	
+	}
+	&__notification {
+		width: 95%;
+		background-color: #3dcf7e;
+		border-radius: 5px;
+		padding: 10px 20px;
+		color: white;
+		font-weight: bold;
+		line-height: 1.571;
+		margin-bottom: 20px;
+		cursor: pointer;
+	}
+
+}
+
+@media screen and (min-width: 700px) {
+	.filesStorage {
+		flex: 0 1 calc(66% - 10px);
+		padding: 0;
+		padding-bottom: 40px;
+	}
+}

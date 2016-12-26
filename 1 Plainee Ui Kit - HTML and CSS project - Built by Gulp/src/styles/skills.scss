@@ -1,0 +1,19 @@
+.skills {
+	flex-direction: column;
+	& .col__heading {
+		margin-bottom: 25px;
+	}
+	& .progressLine {
+		margin-bottom: 15px;
+		&__name {
+			color: #8c9c93;
+			font-weight: bold;
+		} 
+		&__line {
+			height: 20px;
+			&::before {
+				height: 20px;
+			}
+		}
+	}
+}

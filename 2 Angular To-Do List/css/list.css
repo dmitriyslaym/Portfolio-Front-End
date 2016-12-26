@@ -1,0 +1,270 @@
+body {
+	background-image: url('../img/bgr.jpg');
+	background-repeat: repeat;
+	padding: 20px;
+}
+
+label {
+	color: gray;
+}
+
+input {
+	padding: 10px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #adadad;    
+}
+
+input,button,select {
+	outline: none;
+	box-shadow: 1px 1px 1px black;
+}
+
+.wrapper {
+	max-width: 1100px;
+	margin:  0 auto;
+}
+
+.mainHeading {
+	color: #ffe789;
+	text-align: center;
+	text-shadow: 0px 3px 7px black;
+	font-weight: bold;
+	background: rgba(219, 219, 219, .4);
+	border-radius: 20px;
+	padding: 10px;
+	border: 2px solid #adadad;
+}
+
+.mainBox {
+	border: 2px solid #adadad;
+	padding: 15px;
+	border-radius: 10px;
+	background: rgba(219, 219, 219, .4);
+}
+
+.mainBox__content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.tasksTable {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.tasksTable td,th {
+	padding: 10px 10px 10px 10px !important;
+	border: 2px solid #adadad;
+	font-weight: bold;
+	color: #936830;
+}
+
+.remainNote {
+	font-size: 130%;
+	font-weight: bold;
+	color: gray;
+	display: inline-block;
+}
+
+.newTaskFormWrapper {
+	border: 2px solid #adadad;
+	padding: 20px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.selectBox {
+	margin-right: 10px;
+}
+
+.selectInput {
+	color: #e0e0e0;
+	background-color: rgba(165, 99, 18, .7);
+	border-radius: 20px;
+	padding-left: 15px;
+	outline: none;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+.tasksControllerRow {
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 15px;
+}
+
+.tasksTable__heading th {
+	background-color: rgba(247, 239, 150, .5);
+	font-size: 120%;
+	color: gray;
+}
+
+.newTaskText {
+	width: 450px;
+}
+
+.filters {
+	margin-left: auto;
+}
+
+.button {
+	border-radius: 5px;
+	background-color: rgba(249, 218, 139, .7);
+	font-weight: bold;
+	color: gray;
+	font-size: 110%;
+	transition: all 1s;
+}
+
+.button:hover {
+	background-color: rgba(211, 132, 4, .7);
+	color: #e0e0e0;
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: grey !important;
+}
+.done-false {
+  color: #936830;
+}
+
+.editable {
+	cursor: pointer;
+	transition: all 1s;
+}
+
+.editable:hover {
+	color: #d32a00;
+}
+
+.close {
+	display: inline-block;
+	text-align: center;
+	width: 20px;
+	line-height: 20px;
+	background-color: orange;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.attention {
+	color: red;
+	font-weight: 700;
+}
+
+.success {
+	color: green;
+	font-weight: 700;
+}
+
+.newTaskForm input[type="submit"] {
+	color: white;
+	line-height: 40px;
+	height: 40px;
+	width: 120px;
+	padding: 0;
+}
+
+.taskPriority {
+	width: 50px;
+}
+
+.timeRemainsCol {
+	width: 14%;
+}
+
+.priorityCol {
+	width: 10%;
+}
+
+.evenRow {
+	background-color: rgba(188, 187, 184, .5);
+	color: red;
+}
+
+.filters input {
+	transition: all 1s;
+	font-weight: bold;
+	width: 180px;
+	margin-left: 10px;
+	color: gray;
+}
+
+.filters input::-webkit-input-placeholder,.newTaskForm__text::-webkit-input-placeholder {
+	text-indent: 0px; 
+	transition: all 1s;
+}
+
+.filters input:focus::-webkit-input-placeholder,.newTaskForm__text:focus::-webkit-input-placeholder {
+	text-indent: 500px; 
+}
+
+.filters input:hover::-webkit-input-placeholder,.newTaskForm__text:hover::-webkit-input-placeholder {
+	color: white;
+}
+
+.filters input:hover,.filters input:focus,.newTaskForm__text:hover,.newTaskForm__text:focus {
+	background-color: rgba(188, 187, 184, .5);
+}
+
+.tasksRow input,select {
+	background-color: #e0e0e0;
+}
+
+.tasksRow select {
+	width: 50px;
+}
+
+.tasksRow .dateInput {
+	max-width: 130px;
+}
+
+input[type="checkbox"] {
+	box-shadow: none;
+}
+
+.tasksRow .dateInput::-webkit-inner-spin-button, 
+.tasksRow .dateInput::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.newTaskForm__text {
+	transition: all 1s;
+	color: gray;
+	font-weight: bold;
+	width: 400px;	
+}
+
+.newTaskForm__date {
+	font-weight: bold;
+	color: gray;
+}
+
+.newTaskForm__priority {
+	color: gray;
+	border-radius: 5px;
+}
+
+.newTaskForm__button {
+	font-weight: bold !important;
+}
+
+.tasksList {
+	font-weight: bold;
+	font-size: 120%;
+}
+
+/*.animate.ng-leave.ng-leave-active,.animate.ng-enter.ng-enter-active {
+	transition: 1s all;
+}
+
+.animate.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
+.animate.ng-enter.ng-enter-active {
+	opacity: 1;
+}*/

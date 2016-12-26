@@ -1,0 +1,84 @@
+.videoControllers {
+	width: 100%;
+	padding: 22px 15px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	& .progressLine {
+		flex-flow: row no-wrap;
+		&.video {
+			flex: 0 1 100%;
+			margin-bottom: 10px;
+			& .progressLine__line::before {
+				width: 55%;
+			}
+		}
+		&.volume {
+			flex: 0 1 40%;
+			& .progressLine__line::before {
+				width: 50%;
+			}
+		}
+		&__line {
+			display: inline-block;
+			flex: 0 1 75%;
+			position: relative;
+			& .tooltip {
+				padding: 2px 15px;
+				width: auto;
+				bottom: 190%;
+				left: 60%;
+				margin: 0;
+				background-color: #011407;
+				&::after {
+					border-color: #011407 transparent transparent transparent;
+				}
+			}
+		}
+		&__scores {
+			font-size: 0;
+			& > * {
+				font-size: 14px;
+				color: rgb(140, 156, 147);
+				line-height: 1.286;
+			}
+		}
+	}
+	& > * {
+		border-right: 2px solid #eeeeee;
+		flex-flow: row no-wrap;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	& .format {
+		font-size: 18px;
+		color: rgb(61, 207, 126);
+		font-weight: bold;
+		line-height: 1;
+		display: inline-block;
+	}
+	& .expand {
+		display: inline-block;		
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.videoControllers {
+		justify-content: space-between;
+		& .progressLine {
+			&.video {
+				flex: 0 1 62%;
+				margin-bottom: 0;
+			}
+		}
+		& .progressLine {
+			&.volume {
+				flex: 0 1 20%;
+			}
+		}		
+		& > * {
+			padding-left: 0;
+		}
+	}
+}

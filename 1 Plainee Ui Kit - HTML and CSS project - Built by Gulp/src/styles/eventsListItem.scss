@@ -1,0 +1,24 @@
+.eventsList {
+	& .nextPrev {
+		padding: 30px;
+	}
+}
+
+.eventsListItem {
+	justify-content: flex-start !important;
+	padding: 30px;
+	&__poster {
+		margin-right: 15px;
+	}
+	&__title {
+		font-size: 18px;
+		color: rgb(1, 20, 7);
+		font-weight: bold;
+		line-height: 1;
+	}
+	&__adress {
+		color: rgb(140, 156, 147);
+		line-height: 1.286;
+		margin-bottom: 15px;
+	}
+}

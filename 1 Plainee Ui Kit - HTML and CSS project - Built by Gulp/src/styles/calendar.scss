@@ -1,0 +1,96 @@
+.calendar {
+	position: relative;
+	&__stiches {
+		position: absolute;
+		width: 40px !important;
+		height: 26px;
+		top: -13px;
+		background-color: #37b870;
+		cursor: pointer;
+		&_left {
+			left: 25%;
+		}
+		&_right {
+			right: 25%;
+		}
+	}
+}
+
+.calendarHeader {
+	padding: 20px;
+	font-size: 18px;
+	color: rgb(1, 20, 7);
+	font-weight: bold;
+	line-height: 1;
+	text-transform: uppercase;
+	&__day {
+		font-size: 14px;
+		color: rgb(61, 207, 126);
+		line-height: 1.286;
+		text-transform: lowercase;
+	}
+}
+
+.week {
+	padding: 20px;
+	&__day {
+		font-size: 14px;
+		color: rgb(140, 156, 147);
+		line-height: 1.286;
+		text-transform: uppercase;
+		flex: 0 1 14%;
+		text-align: center;
+		&_free {
+			color: #6ed99d;
+		}
+	}
+}
+
+.calendarDays {
+	padding: 15px 20px 20px 20px;
+	&__item {
+		flex: 0 1 14%;
+		text-align: center;
+		margin-bottom: 25px;
+		color: rgb(140, 156, 147);
+		line-height: 1.286;
+		cursor: pointer;
+		&_other {
+			color: rgb(219, 219, 219);
+		}
+	}
+	&__itemNumber {
+		&_active {
+			border-radius: 50%;
+			background-color: #3dcf7e;
+			width: 25px;
+			height: 25px;
+			line-height: 25px;
+			display: inline-block;
+			color: white;
+		}	
+	}
+	&__buttons {
+		justify-content: flex-start !important;
+		padding: 10px 15px;
+		& .button {
+			margin-right: 10px;
+		}
+		& .buttonNext {
+			margin-right: 0px;
+			margin-left: auto;
+			& img {
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.calendarHeader {
+		padding: 40px !important;
+	}
+	.calendarDays {
+		padding: 15px 20px 20px 20px !important;
+	}
+}

@@ -1,0 +1,23 @@
+.filesUpload {
+	&__heading {
+		font-size: 18px;
+		color: rgb(1, 20, 7);
+		font-weight: bold;
+		line-height: 1.222;
+		text-align: center;
+		margin-bottom: 40px;
+		text-transform: uppercase;
+	}
+	&__dragArea {
+		height: 155px;
+		widght: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.filesUpload {
+		flex: 0 1 calc(34% - 10px);
+		padding: 60px 40px;
+	}
+}

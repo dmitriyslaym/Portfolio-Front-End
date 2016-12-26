@@ -1,0 +1,34 @@
+@import "mixins.scss";
+
+.col {
+	flex: 0 1 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px 20px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	border-radius: 3px;
+	&_border {
+		border-top: 3px solid $success;
+	}
+	&__heading {
+		text-transform: uppercase;
+		font-size: 140%;
+		margin: 10px 0 0 0;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.col {
+		padding: 15px 40px 20px;
+	}
+};
+
+@media screen and (min-width: 700px) {
+	.col {
+		flex: 0 1 49%;
+		margin-bottom: 0;
+	}
+}	

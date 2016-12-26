@@ -1,0 +1,31 @@
+.nextPrev {
+	flex: 0 1 auto;
+	&__item {
+		text-transform: uppercase;
+		font-weight: 900;
+		font-size: 120%;
+		cursor: pointer;
+		&_prev {
+			background: url('../img/prev.png') 0 50% no-repeat;
+			padding-left: 20px;
+		}
+		&_next {
+			background: url('../img/next.png') 100% 50% no-repeat;
+			padding-right: 20px;
+		}
+	}
+	&__buttons {
+		margin: 0 auto;
+	}
+	&__button {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #eeeeee;
+		&_active {
+			background-color: #3dcf7e;
+		}
+	}
+}
+

@@ -1,0 +1,18 @@
+.dragArea {
+	display: flex;
+	flex-direction: column;
+	border: 2px dashed #eeeeee;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	&__logo {
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	&__text {
+		font-size: 14px;
+		color: rgb(140, 156, 147);
+		line-height: 1.286;
+		text-align: center;
+	}
+}

@@ -1,0 +1,27 @@
+.profileStatistics {
+	background-color: transparent;
+	flex-direction: column;
+	padding: 0;
+	justify-content: space-between;
+	& .col {
+		width: 100%;
+		padding: 15px 20px;
+	}
+	& .nextPrev {
+		flex: 0 1 auto;
+	}
+	& .profileSubscribe {
+		height: 115px;
+		flex: 0 1 auto;
+	}
+	& .profileShares {
+		height: 195px;
+		flex: 0 1 auto;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.mainInfo .profileStatistics {
+    	padding: 0;
+	}
+}

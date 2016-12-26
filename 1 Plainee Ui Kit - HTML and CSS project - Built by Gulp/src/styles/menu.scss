@@ -1,0 +1,15 @@
+.menu {
+	&__items {
+		flex: 0 1 auto;
+		display: inline-block;
+	}
+	&__item {
+		display: inline-block;
+		margin-right: 20px;
+	}
+	&__a {
+		text-transform: uppercase;
+		color: #011407;
+		text-decoration: none;
+	}
+}

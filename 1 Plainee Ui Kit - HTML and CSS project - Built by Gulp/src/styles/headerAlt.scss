@@ -1,0 +1,30 @@
+.headerAlt {
+	& .col {
+		flex: 0 0 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-around;
+		height: 150px;
+	}
+	& .icons {
+		display: flex;
+		flex-flow: row no-wrap;
+		align-items: center;
+		&__item {
+			margin-right: 22px;
+			&:last-child {
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.headerAlt .col {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		height: auto;
+	}
+}	

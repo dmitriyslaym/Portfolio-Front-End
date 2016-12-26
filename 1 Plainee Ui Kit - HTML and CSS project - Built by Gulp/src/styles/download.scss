@@ -1,0 +1,29 @@
+.download {
+	overflow: hidden;
+	position: relative;
+	color: rgb(140, 156, 147);
+  	line-height: 1.286;
+	&__icon {
+		width: auto !important;
+	}
+	&__item, &__area {
+		& > * {
+			display: block;
+			text-align: center;
+		}
+	}
+	&__name {
+		font-size: 18px;
+		color: rgb(1, 20, 7);
+		font-weight: bold;
+		line-height: 1;
+	}
+
+}
+
+@media screen and (min-width: 700px) {
+	.download {
+		flex: 0 1 calc(25% - 10px);
+		padding: 55px 30px;
+	}
+}

@@ -1,0 +1,87 @@
+@import "mixins.scss";
+
+.logOrRegistration {
+	& .col {
+		height: 330px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex: 0 1 100%;
+		&_small {
+			height: 350px;
+		}
+		&__heading {
+			align-self: center;
+		}
+		& .buttons {
+			margin-bottom: 35px;
+			& .sprite_twitter {
+				margin-left: auto;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.logOrRegistration .col {
+		margin-bottom: 0;
+		&_big {
+			flex: 0 1 58%;
+		}
+		&_small {
+			flex: 0 1 40%;
+		}
+	}
+}	
+
+hr {
+	border-color: #eeeeee;
+	border-width: 2px;
+}
+
+.textNotification {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	& a {
+		color: black;
+		font-weight: bold;
+		text-decoration: none;
+		& span {
+			color: $success;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.registrationRow {
+	display: flex;
+	width: 100%;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	&__item {
+		flex: 0 1 calc(50% - 7px);
+	}
+	& .input {
+		margin-right: 0;
+		font-style: normal;		
+	}
+}
+
+.registrationAgree {
+	padding-left: 20px;
+	&__text {
+		position: relative;
+		margin-top: 0;
+	}
+	&__checkbox {
+		display: inline-block;
+		position: absolute;
+		top:1px;
+		left: -20px;
+	}
+}
+		

@@ -1,0 +1,29 @@
+.input {
+		width: 100%;
+		padding: 10px 5px;
+		box-sizing: border-box;
+		margin-right: 20px;
+		border: 2px solid #eeeeee;
+		border-radius: 5px;
+		color: #e0e5e2;
+		font-style: italic;
+		font-weight: bold;
+		outline: none;
+		&_search {
+			background: url('../img/searchIcon.png') no-repeat 95% 50%;
+			width: 185px;
+			height: 33px;
+		}
+		&_user {
+			background: url('../img/userIcon.png') no-repeat 10px 50%;
+			padding-left: 40px;
+		}
+		&_password {
+			background: url('../img/passIcon.png') no-repeat 10px 50%;
+			padding-left: 40px;
+		}
+		&_email {
+			background: url('../img/emailIcon.png') no-repeat 10px 50%;
+			padding-left: 40px;
+		}
+}

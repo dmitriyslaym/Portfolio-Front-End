@@ -1,0 +1,39 @@
+.uploadingFile {
+	padding: 10px 0;
+	border-top: 2px solid #eeeeee;
+	&_last {
+		border-bottom: 2px solid #eeeeee;	
+	}
+	& > * {
+		flex: 0 1 auto;
+	}
+	&__titles {
+		font-size: 14px;
+		color: rgb(140, 156, 147);
+		line-height: 1.571;
+	}
+	&__number {
+		padding: 1px 7px;
+		background-color: #eeeeee;
+		border-radius: 5px;
+	}
+	& .progressLine__line {
+		flex: 1 1 auto;
+		margin: 0 10px;
+		&_100percent {
+			&::before {
+				width: 100%;
+			}
+		}		
+		&_25percent {
+			&::before {
+				width: 25%;
+			}
+		}
+		&_83percent {
+			&::before {
+				width: 83%;
+			}
+		}
+	}
+}
