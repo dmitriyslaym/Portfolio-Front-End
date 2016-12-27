@@ -140,7 +140,7 @@ input,button,select {
 
 .editable {
 	cursor: pointer;
-	transition: all 1s;
+	transition: color 1s;
 }
 
 .editable:hover {
@@ -257,14 +257,14 @@ input[type="checkbox"] {
 	font-size: 120%;
 }
 
-/*.animate.ng-leave.ng-leave-active,.animate.ng-enter.ng-enter-active {
+/*.ng-leave.ng-leave-active,.ng-enter.ng-enter-active {
 	transition: 1s all;
 }
 
-.animate.ng-leave.ng-leave-active {
+.ng-leave.ng-leave-active {
 	opacity: 0;
 }
 
-.animate.ng-enter.ng-enter-active {
+.ng-enter.ng-enter-active {
 	opacity: 1;
 }*/

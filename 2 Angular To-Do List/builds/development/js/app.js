@@ -1,4 +1,3 @@
-(function() {
 var app = angular.module("myApp", []);
 
 app.controller("ListCtrl", function($scope) {
@@ -180,4 +179,3 @@ app.filter('firstLetterUppercase', function() {
 	};
 });
 
-})();
