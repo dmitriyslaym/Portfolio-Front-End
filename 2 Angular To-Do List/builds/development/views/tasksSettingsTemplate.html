@@ -1,0 +1,22 @@
+<div class="tasksControllerRow">      
+    <div class="selectBox">    
+        <label>Date:</label>
+            <select class="selectInput" ng-change="setDateFilter()" ng-model="settings.datefilter">
+                <option value="">Full date</option>
+                <option value="shortDate">Short date</option>
+            </select> 
+    </div>
+    <div class="selectBox">  
+        <label>Status:</label>      
+            <select class="selectInput" ng-model="settings.completenessfilter">
+                <option value="">All</option>
+                <option value="completed">Completed</option>
+                <option value="working on">Working on</option>
+            </select> 
+    </div>    
+    <div class="filters">
+        <input type="text" ng-model="settings.textfilter" placeholder="Filter by task name" > 
+        <input type="text" ng-model="settings.remainfilter" placeholder="Filter by remain time" > 
+        <input type="text" ng-model="settings.priorityfilter" placeholder="Filter by priority" >   
+    </div>
+</div>      

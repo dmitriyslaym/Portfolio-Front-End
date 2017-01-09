@@ -13,142 +13,25 @@
   <script src="js/lib/angular/angular-animate.min.js"></script>
 
   <script src="js/app.js"></script>
+  <script src="js/services/TasksFactory.js"></script>
+  <script src="js/services/TimeRemainFactory.js"></script>
+  <script src="js/services/TasksRemainFactory.js"></script>
+  <script src="js/controllers/tasksStorageCtrl.js"></script>
+  <script src="js/controllers/routesCtrl.js"></script>
+  <script src="js/controllers/tasksSettingsCtrl.js"></script>
+  <script src="js/controllers/formValidationCtrl.js"></script>
+  <script src="js/directives/tasksTableDirective.js"></script>
+  <script src="js/directives/tasksSettingsDirective.js"></script>
+  <script src="js/directives/newTaskFormDirective.js"></script>
 </head>
-<body ng-app="myApp">
+<body>
     <div class="wrapper">
         <h1 class="mainHeading">The List Of My Tasks</h1>
-        <div class="mainBox" ng-controller="ListCtrl">
-            <div class="mainBox__content">    
-                <div class="tasksControllerRow">      
-                    <div class="selectBox">
-                        <label>View:</label>
-                            <select class="selectInput" name="switchView" id="switchView" ng-model="viewType">
-                                <option value="table">Table (full view)</option>
-                                <option value="list">List (for printing)</option>
-                            </select>
-                    </div>
-                    <div class="selectBox">    
-                        <label>Date:</label>
-                            <select class="selectInput" ng-change="setDateFilter()" ng-model="dateFilter">
-                                <option value="">Full date</option>
-                                <option value="shortDate">Short date</option>
-                            </select> 
-                    </div>
-                    <div class="selectBox">  
-                        <label>Status:</label>      
-                            <select class="selectInput" ng-model="filterByCompleteness">
-                                <option value="">All</option>
-                                <option value="completed">Completed</option>
-                                <option value="working on">Working on</option>
-                            </select> 
-                    </div>    
-                </div>      
-                <div class="tasksControllerRow">            
-                    <span class="remainNote">Remain {{remain()}} within {{items.length}}</span>
-                    <div class="filters">
-                        <input type="text" ng-model="searchBox.text" placeholder="Filter by task name" > 
-                        <input type="text" ng-model="filterByRemain" placeholder="Filter by remain time" > 
-                        <input type="text" ng-model="filterByPriority" placeholder="Filter by priority" >   
-                    </div>
-                </div>
-                <!-- Start ng-switch -->
-                <div ng-switch on="viewType">
-                    <!-- ng-switch: Table -->
-                    <table class="tasksTable" ng-switch-when="table">
-                        <tbody>
-                            <tr class="tasksTable__heading">
-                                <th>&#10004;</th>
-                                <th>Task name</th>
-                                <th class="deadlineCol">Deadline</th>
-                                <th class="timeRemainsCol">
-                                    Time remains</br>
-                                    <select class="selectInput" ng-model="newOrder">
-<!--                                         <option value="">Sort</option> -->
-                                        <option value="-timeRemain">&darr;&darr;</option>
-                                        <option value="+timeRemain">&uarr;&uarr;</option>
-                                    </select> 
-                                </th>
-                                <th class="priorityCol">
-                                    Priority</br>
-                                    <select class="selectInput" ng-model="newOrder">
-<!--                                         <option value="">Sort</option> -->
-                                        <option value="-priority">&darr;&darr;</option>
-                                        <option value="+priority">&uarr;&uarr;</option>
-                                    </select> 
-                                </th>
-                            </tr>
-                            <tr ng-click="turnOffEditMode(item)" class="tasksRow" ng-show="!item.filteredBytimeRemain && !item.filteredBypriority && !item.filteredByComplete" ng-repeat="item in items | filter:searchBox | numbersFilter:filterByRemain:'timeRemain' | numbersFilter:filterByPriority:'priority' | completeFilter:filterByCompleteness | orderBy:newOrder | firstLetterUppercase" ng-class-odd="'evenRow'" >
-                                <td>
-                                    <input type="checkbox" ng-model="item.done">
-                                </td>
-                                <td>
-                                    <a class="delButton" ng-click="deleteTask(item)" class="delete"><img src="img/DeleteRed.png" alt=""></a>
-                                    <span ng-show="!item.editable" ng-click="turnOnEditMode(item)" class="editable actionText done-{{item.done}}">{{item.text}}</span>
-                                    <input ng-show="item.editable" type="text" ng-model="item.text">
-                                </td>
-                                <td>
-                                    <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(item)">{{item.deadline | date:dateFilter}}</span>
-                                    <input ng-show="item.editable" ng-change="timeRemainCalc(item)" type="date" class="dateInput" ng-model="item.deadline">
-                                </td>
-                                <td>
-                                    <span ng-show="!item.done" class="{{item.timeRemainClass}}">{{timeRemainCalc(item)}}</span>
-                                    <span class="success" ng-show="item.done">Already done</span>
-                                </td>
-                                <td>
-                                    <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(item)">{{item.priority}}</span>
-                                    <select ng-show="item.editable" ng-model="item.priority" ng-options="score for score in [5,4,3,2,1]">
-                                        <option value="">Select a score</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- ng-switch: List -->
-                    <ul class="tasksList" ng-switch-when="list">
-                        <li ng-repeat="item in items">{{item.text}} - (Must be finished till {{item.deadline}}, Priority is {{item.priority}})</li>
-                    </ul>
-                </div>
-                <!-- End ng-switch -->
-                <div class="newTaskFormWrapper">
-                    <form name="newTaskForm" class="newTaskForm" ng-submit="addItem()" novalidate>
-                        <p>
-                            <input class="newTaskForm__text"
-                                name="action"
-                                type="text"
-                                ng-model="itemText" 
-                                size="30"
-                                placeholder="Add a task" 
-                                ng-minlength="5"
-                                ng-maxlength="50"
-                                ng-required="true"
-                                ng-pattern="actionPattern"
-                                >
-                        </p>
-                        <p>        
-                            <input type="date" 
-                                name="deadline"
-                                ng-model="itemDeadline"
-                                ng-required="true"
-                                class="newTaskForm__date"
-                                >
-                        </p>  
-                        <p>      
-                            <label>Priority:</label>
-                            <select ng-required="true" ng-model="itemPriority" ng-options="score for score in [5,4,3,2,1]" class="newTaskForm__priority">
-                                <option value="">Select a score</option>
-                            </select>
-                        </p>
-                        <p>      
-                            <input class="btn btn-primary newTaskForm__button" 
-                                type="submit" 
-                                value="Add"
-                                ng-disabled="newTaskForm.$invalid">   
-                        </p>  
-                        <p class="attention" ng-show="newTaskForm.$invalid">
-                            {{getError(newTaskForm.$error)}}
-                        </p>                    
-                    </form>
-                </div>
+        <div class="mainBox" ng-controller="TasksStorageCtrl">
+            <div ng-controller="RoutesCtrl" class="mainBox__content"> 
+                <a href="#/tasks" ng-class="{active:location==='tasks'}" class="tabBtn">The list of my tasks</a>
+                <a href="#/newtask" ng-class="{active:location==='newtask'}" class="tabBtn">Add new task</a>
+                <div ng-view class="routeView"></div>
             </div>
         </div>
     </div>

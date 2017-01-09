@@ -1,0 +1,63 @@
+<div class="newTaskFormWrapper">
+    <form name="newTaskForm" class="newTaskForm" ng-submit="addItem(items, inputs)" novalidate>
+        <div class="newTaskForm__row">
+            <input class="newTaskForm__text"
+                name="action"
+                type="text"
+                ng-model="inputs.itemText" 
+                size="30"
+                placeholder="What is your task?" 
+                ng-minlength="5"
+                ng-maxlength="50"
+                ng-required="true"
+                ng-pattern="validationCtrl.actionPattern"
+                >
+        </div>
+        <div class="newTaskForm__row">
+            <div>     
+                <label class="newTaskForm__labelForText">Deadline</label></br> 
+                <input type="date" 
+                    name="deadline"
+                    ng-model="inputs.itemDeadline"
+                    ng-required="true"
+                    class="newTaskForm__date"
+                    >
+            </div>   
+            <img src="img/Deadline.png" alt=""> 
+            <div>    
+                <label class="newTaskForm__labelForText">Priority:</label></br>
+                <select ng-required="true" ng-model="inputs.itemPriority" ng-options="score for score in [5,4,3,2,1]" class="newTaskForm__priority">
+                    <option value="">Select a score</option>
+                </select>
+            </div>
+        </div>  
+        <p>  
+            <button class="newTaskForm__submit" ng-class="{invalid:newTaskForm.$invalid}" ng-disabled="newTaskForm.$invalid">Add New Task</button>   
+        </p>
+        <p class="attention" ng-show="newTaskForm.$invalid">
+            {{validationCtrl.getError(newTaskForm.$error, pattern, minlength)}}
+        </p>                    
+    </form>
+    <img class="submitIndicationImg" ng-if="newTaskForm.$invalid" ng-src="img/newTaskTyping.png">
+    <img class="submitIndicationImg" ng-if="!newTaskForm.$invalid" ng-src="img/newTaskValid.png">
+    <!-- Module -->
+    <div class="module" id="module" ng-if="showModule()">
+        <div class="module__window">
+            <div class="module__content">
+                <h1 class="module__text">The task has been added to your Tasks List!</h1>
+                <div class="module__links">
+                    <a href="#newtask" ng-click="closeModule()">
+                        <img src="img/moduleAdd.png" alt="add a task"></br>
+                        Add one more task
+                    </a>
+                    <span>Make your choice</span>
+                    <a href="#tasks" ng-click="closeModule()">
+                        <img src="img/moduleTasks.png" alt="add a task"></br>
+                        Go to the list of my tasks
+                    </a>
+                </div>
+            </div>         
+        </div>
+    </div>
+    <!-- End Module -->
+</div>

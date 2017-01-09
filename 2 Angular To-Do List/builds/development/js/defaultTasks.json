@@ -1,0 +1,6 @@
+[
+  { "text": "Go to Gym", "done": false, "deadline": "2017-02-18", "priority": 5 },
+  { "text": "Prepare for a test", "done": false, "deadline": "2017-02-18", "priority": 5 },
+  { "text": "Find more information about AngularJS", "done": false, "deadline": "2017-02-18", "priority": 5 },
+  { "text": "Read a book", "done": false, "deadline": "2017-02-18", "priority": 4 }
+]

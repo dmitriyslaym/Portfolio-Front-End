@@ -1,0 +1,48 @@
+<span class="remainNote">Remain {{tasksRemain(items, item)}} within {{items.length}}</span>
+<table class="tasksTable">
+    <tbody>
+        <tr class="tasksTable__heading">
+            <th class="tasksRow__checkbox">&#10004;</th>
+            <th class="tasksRow__taskName">Task name</th>
+            <th class="tasksRow__deadline">Deadline</th>
+            <th class="tasksRow__timeRemain">
+                Time remains</br>
+                <select class="selectInput" ng-model="newOrder">
+                    <option value="-timeRemain">&darr;&darr;</option>
+                    <option value="+timeRemain">&uarr;&uarr;</option>
+                </select> 
+            </th>
+            <th class="tasksRow__priority">
+                Priority</br>
+                <select class="selectInput" ng-model="newOrder">
+                    <option value="-priority">&darr;&darr;</option>
+                    <option value="+priority">&uarr;&uarr;</option>
+                </select> 
+            </th>
+        </tr>
+        <tr ng-click="turnOffEditMode(items, item)" class="tasksRow" ng-show="!item.filteredBytimeRemain && !item.filteredBypriority && !item.filteredByComplete" ng-repeat="item in items | filter:settings.textfilter | numbers:settings.remainfilter:'timeRemain' | numbers:settings.priorityfilter:'priority' | complete:settings.completenessfilter | orderBy:newOrder | firstLetterUppercase" ng-class-odd="'evenRow'" >
+            <td>
+                <input type="checkbox" ng-model="item.done">
+            </td>
+            <td>
+                <a class="delButton" ng-click="deleteTask(items, item)" class="delete"><img src="img/DeleteRed.png" alt=""></a>
+                <span ng-show="!item.editable" ng-click="turnOnEditMode(items, item)" class="editable actionText done-{{item.done}}">{{item.text}}</span>
+                <input ng-show="item.editable" type="text" ng-model="item.text" class="tasksRow__textInput">
+            </td>
+            <td>
+                <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(items, item)">{{item.deadline | date:settings.datefilter}}</span>
+                <input ng-show="item.editable" ng-change="timeRemainCalc(items, item)" type="date" class="dateInput" ng-model="item.deadline">
+            </td>
+            <td>
+                <span ng-show="!item.done" class="{{item.timeRemainClass}}">{{timeRemainCalc(items, item)}}</span>
+                <span class="success" ng-show="item.done">Already done</span>
+            </td>
+            <td>
+                <span class="editable" ng-show="!item.editable" ng-click="turnOnEditMode(items, item)">{{item.priority}}</span>
+                <select ng-show="item.editable" ng-model="item.priority" ng-options="score for score in [5,4,3,2,1]">
+                    <option value="">Select a score</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -2,10 +2,15 @@ body {
 	background-image: url('../img/bgr.jpg');
 	background-repeat: repeat;
 	padding: 20px;
+	position: relative;
 }
 
 label {
 	color: gray;
+}
+
+a {
+	text-decoration: none !important;
 }
 
 input {
@@ -20,17 +25,15 @@ input,button,select {
 	box-shadow: 1px 1px 1px black;
 }
 
-.delButton {
-	cursor: pointer;
+input[type="checkbox"] {
+	box-shadow: none;
 }
 
-.delButton img {
-	width: 25px;
-}
+/*Main Layout*/
 
 .wrapper {
 	max-width: 1100px;
-	margin:  0 auto;
+	margin: 0 auto;
 }
 
 .mainHeading {
@@ -56,30 +59,31 @@ input,button,select {
 	margin: 0 auto;
 }
 
-.tasksTable {
-	width: 100%;
-	margin-bottom: 15px;
-}
-
-.tasksTable td,th {
-	padding: 10px 10px 10px 10px !important;
-	border: 2px solid #adadad;
-	font-weight: bold;
-	color: #936830;
-}
-
-.remainNote {
-	font-size: 130%;
-	font-weight: bold;
-	color: gray;
+.tabBtn, .tabBtn:focus {
 	display: inline-block;
+	background: #FFE789;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #a86400;
+	margin: 0 15px 15px 0;
+	border-radius: 5px;
+	box-shadow: 4px 5px 9px gray;
+	border: 1px solid gray;
+	transition: all 1s;
 }
 
-.newTaskFormWrapper {
-	border: 2px solid #adadad;
-	padding: 20px;
-	border-radius: 10px;
-	font-weight: bold;
+.tabBtn:hover, .tabBtn.active {
+	background: #a86400;
+	color: #DCD3C9;
+	text-shadow: 1px 1px 1px gray;
+}
+
+/* Tasks Settings */
+.tasksControllerRow {
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 15px;
 }
 
 .selectBox {
@@ -96,10 +100,68 @@ input,button,select {
 	margin-right: 20px;
 }
 
-.tasksControllerRow {
-	display: flex;
-	flex-flow: row wrap;
+.filters {
+	margin-left: auto;
+}
+
+input[type="text"] {
+	transition: all 1s;
+	font-weight: bold;
+	color: gray;
+	transition: all 1s;
+}
+
+.filters input[type="text"] {
+	width: 180px;
+	margin-left: 10px;
+}
+
+input[type="text"]::-webkit-input-placeholder,.newTaskForm__text::-webkit-input-placeholder {
+	text-indent: 0px; 
+	transition: all 1s;
+}
+
+input[type="text"]:focus::-webkit-input-placeholder,.newTaskForm__text:focus::-webkit-input-placeholder {
+	text-indent: 500px; 
+}
+
+input[type="text"]:hover::-webkit-input-placeholder,.newTaskForm__text:hover::-webkit-input-placeholder {
+	color: white;
+}
+
+input[type="text"]:hover,.filters input:focus,.newTaskForm__text:hover,.newTaskForm__text:focus {
+	background-color: rgba(188, 187, 184, .5);
+}
+
+.remainNote {
+	font-size: 130%;
+	font-weight: bold;
+	color: gray;
+	display: inline-block;
+}
+
+.routeView.ng-enter {
+  transform: scale(0.5) rotate(20deg);
+  transition: all 1s;
+}
+
+.routeView.ng-enter-active {
+	transform: scale(1) rotate(0deg);
+	transition: all 1s;
+}
+
+/* Tasks Table */
+
+.tasksTable {
+	width: 100%;
 	margin-bottom: 15px;
+}
+
+.tasksTable td,th {
+	padding: 10px 10px 10px 10px !important;
+	border: 2px solid #adadad;
+	font-weight: bold;
+	color: #936830;
 }
 
 .tasksTable__heading th {
@@ -108,53 +170,97 @@ input,button,select {
 	color: gray;
 }
 
-.newTaskText {
-	width: 450px;
+.tasksRow input,select {
+	background-color: #e0e0e0;
 }
 
-.filters {
-	margin-left: auto;
+.tasksRow select {
+	width: 50px;
 }
 
-.button {
-	border-radius: 5px;
-	background-color: rgba(249, 218, 139, .7);
-	font-weight: bold;
-	color: gray;
-	font-size: 110%;
+.evenRow {
+	background-color: rgba(188, 187, 184, .5);
+}
+
+.tasksRow .dateInput {
+	max-width: 130px;
+}
+
+.tasksRow .dateInput::-webkit-inner-spin-button, 
+.tasksRow .dateInput::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.tasksRow__checkbox {
+	width: 36px;
+}
+
+.tasksRow__deadline, .tasksRow__timeRemain {
+	width: 130px;
+}
+
+.tasksRow__priority {
+	width: 100px;
+}
+
+.tasksRow__textInput {
+	width: 90%;
+}
+
+.tasksRow.ng-hide-add, .tasksRow.ng-hide-remove {
 	transition: all 1s;
 }
 
-.button:hover {
-	background-color: rgba(211, 132, 4, .7);
-	color: #e0e0e0;
+.tasksRow.ng-hide {
+	opacity: 0;
+	transform: scale(0.5);
+}
+
+.tasksRow.ng-leave {
+	opacity: 1;
+	transform: scale(1);
+	transition: all 1s;
+}
+
+.tasksRow.ng-leave-active {
+	opacity: 0;
+	transform: scale(0.5);
+	transition: all 1s;
+}
+
+.tasksRow .tasksRow__textInput.ng-hide {
+	transition: none;
+}
+
+.delButton {
+	cursor: pointer;
+}
+
+.delButton img {
+	width: 25px;
 }
 
 .done-true {
   text-decoration: line-through;
   color: grey !important;
 }
+
 .done-false {
   color: #936830;
 }
 
 .editable {
 	cursor: pointer;
-	transition: color 1s;
 }
 
 .editable:hover {
 	color: #d32a00;
+	transition: color 1s;
 }
 
-.close {
-	display: inline-block;
-	text-align: center;
-	width: 20px;
-	line-height: 20px;
-	background-color: orange;
-	cursor: pointer;
-	font-weight: bold;
+.editable.ng-hide {
+	transition: none;
 }
 
 .attention {
@@ -167,80 +273,70 @@ input,button,select {
 	font-weight: 700;
 }
 
-.newTaskForm input[type="submit"] {
-	color: white;
-	line-height: 40px;
-	height: 40px;
-	width: 120px;
-	padding: 0;
-}
+/*New Task Form*/
 
-.taskPriority {
-	width: 50px;
-}
-
-.evenRow {
-	background-color: rgba(188, 187, 184, .5);
-	color: red;
-}
-
-.filters input {
-	transition: all 1s;
+.newTaskFormWrapper {
+	border: 2px solid #adadad;
+	padding: 20px;
+	border-radius: 10px;
 	font-weight: bold;
-	width: 180px;
-	margin-left: 10px;
-	color: gray;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
 }
 
-.filters input::-webkit-input-placeholder,.newTaskForm__text::-webkit-input-placeholder {
-	text-indent: 0px; 
+.newTaskForm {
+	width: 500px;
+}
+
+.newTaskForm__row {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.newTaskForm__row img {
+	width: 100px;
+	height: 100px;
+}
+
+.newTaskForm__submit {
+	color: white;
+	background-color: #4a5377;
+	border-radius: 5px;
+	border: 1px solid gray;
+	box-shadow: 4px 5px 5px gray;
+	font-weight: bold !important;
+	line-height: 50px;
+	height: 50px;
+	padding: 0 20px;
 	transition: all 1s;
 }
 
-.filters input:focus::-webkit-input-placeholder,.newTaskForm__text:focus::-webkit-input-placeholder {
-	text-indent: 500px; 
+.newTaskForm__submit.invalid {
+	background-color: #b2afad;
 }
 
-.filters input:hover::-webkit-input-placeholder,.newTaskForm__text:hover::-webkit-input-placeholder {
-	color: white;
+.newTaskForm__submit:not(.invalid):hover {
+	background-color: #002489;
+	cursor: pointer !important;
 }
 
-.filters input:hover,.filters input:focus,.newTaskForm__text:hover,.newTaskForm__text:focus {
-	background-color: rgba(188, 187, 184, .5);
-}
-
-.tasksRow input,select {
-	background-color: #e0e0e0;
-}
-
-.tasksRow select {
-	width: 50px;
-}
-
-.tasksRow .dateInput {
-	max-width: 130px;
-}
-
-input[type="checkbox"] {
-	box-shadow: none;
-}
-
-.tasksRow .dateInput::-webkit-inner-spin-button, 
-.tasksRow .dateInput::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.newTaskForm__labelForText {
+	font-size: 120%;
 }
 
 .newTaskForm__text {
-	transition: all 1s;
-	color: gray;
-	font-weight: bold;
-	width: 400px;	
+	width: 100%;	
 }
+
 
 .newTaskForm__date {
 	font-weight: bold;
 	color: gray;
+	background-color: #E0E0E0;
 }
 
 .newTaskForm__priority {
@@ -248,23 +344,89 @@ input[type="checkbox"] {
 	border-radius: 5px;
 }
 
-.newTaskForm__button {
-	font-weight: bold !important;
+.submitIndicationImg {
+	width: 250px;
+	height: 250px;
 }
 
-.tasksList {
-	font-weight: bold;
+.submitIndicationImg.ng-enter {
+	transform: translateX(-250px);
+	transition: all 1s;
+}
+
+.submitIndicationImg.ng-enter-active {
+	transform: translateX(0px);
+	transition: all 1s;
+}
+
+/* Module */
+.module {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(56, 56, 56, .9);
+	padding-top: 200px;
+}
+
+.module__window {
+	width: 70%;
+	border-radius: 5px;
+	box-shadow: inset 3px 2px 10px gray;
+	margin: auto;
+	background: #eae5d7;
+	padding: 20px;
+	text-align: center;
+	animation-name: slideIn;
+	animation-duration: 1s;
+}
+
+.module__content {
+	display: inline-block;
+}
+
+.module__text {
+	font-size: 36px;
+	color: #775700;
+	margin-bottom: 25px;
+}
+
+.module__links {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.module__links a {
 	font-size: 120%;
+	transition: all 1s;
 }
 
-/*.ng-leave.ng-leave-active,.ng-enter.ng-enter-active {
-	transition: 1s all;
+.module__links span {
+	font-size: 26px;
+    color: #b29239;
+    text-shadow: 7px 9px 4px #dbd1b8;
 }
 
-.ng-leave.ng-leave-active {
-	opacity: 0;
+.module__links img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 5px;
 }
 
-.ng-enter.ng-enter-active {
+.module.ng-enter {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.module.ng-enter-active {
 	opacity: 1;
-}*/
+	transition: all 1s;
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-300px); opacity: 0} 
+    to {transform: translateY(0px); opacity: 1}
+}
